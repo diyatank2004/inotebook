@@ -24,18 +24,13 @@ function Navbar() {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className={isActive("/about")} to="/about" style={{ padding: '10px 15px' }}>
-                About
-              </Link>
-            </li>
           </ul>
           <div className="d-flex">
             <Link to="/signup">
               <button className="btn mx-3" style={{ backgroundColor: '#4caf50', color: 'white' }}>Sign Up</button>
             </Link>
             <Link to="/login">
-              <button className="btn" style={{ backgroundColor: '#388e3c', color: 'white' }}>Login</button>
+              <button className="btn" style={{ backgroundColor: '#4caf50', color: 'white' }}>Login</button>
             </Link>
           </div>
         </div>

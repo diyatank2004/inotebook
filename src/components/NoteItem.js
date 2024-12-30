@@ -18,13 +18,16 @@ const NoteItem = (props) => {
           {/* Edit Icon - Trigger Edit Function */}
           <i
             className="fas fa-pen-to-square mx-2"
-            onClick={()=>{updateNote(note)}}
+            onClick={()=>{updateNote(note)}
+          }
           ></i>
 
           {/* Delete Icon - Trigger Delete Function */}
           <i
             className="fas fa-trash mx-2"
-            onClick={() => deleteNote(note._id)}
+            onClick={() => {deleteNote(note._id)
+              props.showAlert("Deleted Successfully","success")}
+            }
           ></i>
         </div>
       </div>

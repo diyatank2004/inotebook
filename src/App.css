@@ -1,49 +1,41 @@
+/* Add top padding to .App so the content is below the fixed navbar */
 .App {
   text-align: center;
+  padding-top: 50px; /* Ensure content doesn't overlap with fixed navbar */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Alert styling: ensure it appears below the navbar */
+.alert {
+  position: fixed; /* Make alert fixed so it stays on the screen */
+  top: 50px; /* Adjust this based on the height of your navbar */
+  left: 50%;
+  transform: translateX(-50%); /* Center the alert horizontally */
+  z-index: 1050; /* Make sure it's above other elements */
+  width:100%; /* Adjust the width to fit the screen */
+  margin: 10px 0; /* Add some margin if needed */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Navbar styles to ensure it is above other elements */
+.navbar {
+  z-index: 1020; /* Ensure navbar stays above other elements */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Navbar link active class styling */
+.navbar .navbar-nav .nav-link.active {
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #d1d1d1; /* Change hover effect color */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.nav-link.active {
-  font-weight: bold;
-  padding: 5px 10px; /* Add some padding */
-  transition: background-color 0.3s ease; /* Smooth transition on hover */
-}
-
-/* Custom Styles */
+/* Additional custom styles */
 .card {
   border-radius: 15px;
 }
@@ -62,34 +54,34 @@
   max-width: 400px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #ffffff; /* Light background */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e0e0;
 }
 
 /* Form Elements */
 .login-container input[type="email"],
 .login-container input[type="password"] {
-  border: 1px solid #ced4da; /* Light border */
+  border: 1px solid #ced4da;
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
-  background-color: #f9f9f9; /* Light background for input fields */
+  background-color: #f9f9f9;
 }
 
 .login-container input[type="email"]:focus,
 .login-container input[type="password"]:focus {
-  border-color: #007bff; /* Blue border on focus */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow */
-  outline: none; /* Remove default outline */
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
 }
 
 /* Submit Button */
 .login-container button[type="submit"] {
   width: 100%;
   padding: 12px;
-  background-color: #28a745; /* Success green */
+  background-color: #28a745;
   color: white;
   border: none;
   border-radius: 5px;
@@ -98,11 +90,11 @@
 }
 
 .login-container button[type="submit"]:hover {
-  background-color: #218838; /* Darker green on hover */
+  background-color: #218838;
 }
 
 .login-container button[type="submit"]:focus {
-  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5); /* Green glow on focus */
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
   outline: none;
 }
 

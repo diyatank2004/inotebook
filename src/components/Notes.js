@@ -3,7 +3,7 @@ import noteContext from "../context/notes/noteContext";
 import NoteItem from "./NoteItem";
 import AddNote from "./AddNote";
 
-const Notes = () => {
+const Notes = (props) => {
   const context = useContext(noteContext);
   const { notes, fetchNotes, editNote } = context; // Assuming editNote is defined in your context
 
@@ -39,6 +39,7 @@ const Notes = () => {
     e.preventDefault();
     editNote(note.id, note.title, note.description, note.tag); // Updates the note using context
     refClose.current.click(); // Closes the modal after updating
+    props.showAlert("Updated Successfully","success")
   };
 
   // Handles form input changes
@@ -48,7 +49,7 @@ const Notes = () => {
 
   return (
     <>
-      <AddNote /> {/* Component to add a new note */}
+      <AddNote showAlert={props.showAlert}/> {/* Component to add a new note */}
 
       {/* Hidden button to trigger the modal programmatically */}
       <button
@@ -162,7 +163,7 @@ const Notes = () => {
         {notes.length === 0 && <div>No notes to display</div>}
         {notes.map((note) => {
           return (
-            <NoteItem key={note._id} updateNote={updateNote} note={note} />
+            <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />
           );
         })}
       </div>

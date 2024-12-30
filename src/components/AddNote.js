@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import noteContext from '../context/notes/noteContext';
 
-const AddNote = () => {
+const AddNote = (props) => {
   const context = useContext(noteContext);
   const { addNote } = context;
   const [note, setNote] = useState({ title: '', description: '', tag: 'Default' });
@@ -10,6 +10,7 @@ const AddNote = () => {
     e.preventDefault();
     addNote(note.title, note.description, note.tag); // Add the note via context
     setNote({ title: '', description: '', tag: 'Default' }); // Clear the form after submission
+    props.showAlert("Added Notes Successfully","success")
   };
 
   const onChange = (e) => {

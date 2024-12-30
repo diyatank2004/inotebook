@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-const SignUp = ({ showAlert }) => {
+const SignUp = (props) => {
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -16,7 +16,7 @@ const SignUp = ({ showAlert }) => {
   
     // Ensure passwords match before sending to the backend
     if (credentials.password !== credentials.confirm_password) {
-      alert("Passwords do not match");
+      props.showAlert("Passwords do not match","danger");
       return;
     }
   
@@ -38,16 +38,16 @@ const SignUp = ({ showAlert }) => {
   
       if (json.authtoken) {
         // Sign up was successful
-        console.log("Sign Up Success:", json);
         localStorage.setItem("token", json.authtoken); // Store the token if necessary
         navigate("/login"); // Redirect to home page
+        props.showAlert("Account created Successfully","success");
       } else {
         // Sign up failed, show an error
-        alert("Sign up failed: " + (json.errors ? json.errors[0].msg : "Unknown error"));
+        props.showAlert("Sign up failed: " + (json.errors ? json.errors[0].msg : "Unknown error"),"danger");
       }
     } catch (error) {
       console.error("An error occurred:", error);
-      alert("An error occurred during sign up.");
+      props.showAlert("An error occurred during sign up.","danger");
     }
   };  
   
