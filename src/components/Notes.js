@@ -2,14 +2,21 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import noteContext from "../context/notes/noteContext";
 import NoteItem from "./NoteItem";
 import AddNote from "./AddNote";
+import { useNavigate } from 'react-router-dom';
 
 const Notes = (props) => {
+  const navigate = useNavigate();
   const context = useContext(noteContext);
   const { notes, fetchNotes, editNote } = context; // Assuming editNote is defined in your context
 
   // Fetch notes when the component loads
   useEffect(() => {
-    fetchNotes();
+    if(localStorage.getItem('token')){
+      fetchNotes();
+    }
+    else{
+      navigate('/login');
+    }
   }, [fetchNotes]);
 
   const ref = useRef(null);

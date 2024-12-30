@@ -57,6 +57,8 @@ const SignUp = (props) => {
   };
 
   return (
+    <>
+    <h2>Create an Account on iNotebook</h2>
     <div className="login-container">
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -121,6 +123,7 @@ const SignUp = (props) => {
         <button type="submit" className="btn btn-success">Sign Up</button>
       </form>
     </div>
+    </>
   );
 };
 
