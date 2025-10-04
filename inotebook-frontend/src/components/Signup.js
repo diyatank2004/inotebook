@@ -19,7 +19,8 @@ const SignUp = (props) => {
       props.showAlert("Passwords do not match","danger");
       return;
     }
-  
+    
+    console.log("The backend URL is:", process.env.REACT_APP_BACKEND_URL);
     try {
       const response = await fetch("${process.env.REACT_APP_BACKEND_URL}/api/auth/createuser", {
         method: "POST",
