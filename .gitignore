@@ -1,0 +1,11 @@
+# Dependencies
+/node_modules
+/inotebook-backend/node_modules
+/inotebook-frontend/node_modules
+
+# Environment variables
+.env
+*/.env
+
+# Build folder
+/build
